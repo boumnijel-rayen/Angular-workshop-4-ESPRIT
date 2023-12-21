@@ -1,0 +1,105 @@
+<div class="container">
+    <form [formGroup]="apartForm">
+        <div class="mb-3">
+            <label for="AprtN" class="form-label">Apartment number :</label>
+            <input type="text" formControlName="ApprtN" class="form-control" id="AprtN" placeholder="Apartment number">
+          </div>
+          <div class="alert alert-danger" *ngIf="apartForm.get('ApprtN')?.touched && apartForm.get('ApprtN')?.hasError('required')" role="alert">
+            Apartment number est obligatoire
+          </div>
+          <div class="alert alert-danger" *ngIf="apartForm.get('ApprtN')?.touched && apartForm.get('ApprtN')?.hasError('pattern')" role="alert">
+            Apartment number doit être nombre
+          </div>
+          <div class="mb-3">
+            <label for="FloorN" class="form-label">Floor number :</label>
+            <input type="text" formControlName="FloorN" class="form-control" id="FloorN" placeholder="Floor number">
+          </div>
+          <div class="alert alert-danger" *ngIf="apartForm.get('FloorN')?.touched && apartForm.get('FloorN')?.hasError('required')" role="alert">
+            Floor number est obligatoire
+          </div>
+          <div class="alert alert-danger" *ngIf="apartForm.get('ApprtN')?.touched && apartForm.get('ApprtN')?.hasError('pattern')" role="alert">
+            Floor number doit être nombre
+          </div>
+          <div class="mb-3">
+            <label for="Surface" class="form-label">Surface :</label>
+            <input type="text" formControlName="Surface" class="form-control" id="Surface" placeholder="Surface">
+          </div>
+          <div class="alert alert-danger" *ngIf="apartForm.get('Surface')?.touched && apartForm.get('Surface')?.hasError('required')" role="alert">
+            Surface est obligatoire
+          </div>
+          <div class="mb-3 flex">
+            <label for="Terrace" class="form-label">Terrace :</label>
+            <div class="checkBox">
+                <div class="form-check">
+                    <input class="form-check-input" value="Yes" formControlName="Terrace" type="radio" name="flexRadioDefault" id="Yes">
+                    <label class="form-check-label" for="Yes">
+                    Yes
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="No" formControlName="Terrace" type="radio" name="flexRadioDefault" id="No">
+                    <label class="form-check-label" for="No">
+                    No
+                    </label>
+                </div>
+            </div>
+          </div>
+          <div class="alert alert-danger" *ngIf="apartForm.get('Terrace')?.touched && apartForm.get('Terrace')?.hasError('required')" role="alert">
+            Terrace est obligatoire
+          </div>
+          <div class="alert alert-danger" *ngIf="apartForm.get('Terrace')?.touched && apartForm.get('Terrace')?.hasError('pattern')" role="alert">
+            Terrace doit être à Yes
+          </div>
+          <div class="mb-3">
+            <label for="SurfaceT" class="form-label">Surface Terrace :</label>
+            <input type="text" formControlName="SurfaceT" class="form-control" id="SurfaceT" placeholder="Surface Terrace">
+          </div>
+          <div class="alert alert-danger" *ngIf="apartForm.get('SurfaceT')?.touched && apartForm.get('SurfaceT')?.hasError('required')" role="alert">
+            Surface terrace est obligatoire
+          </div>
+          <div class="mb-3 flex">
+            <label for="Terrace" class="form-label">Category :</label>
+            <div class="checkBox">
+                <div class="form-check">
+                    <input class="form-check-input" formControlName="Caregotie" value="S1" type="radio" name="flexRadioDefault2" id="S1">
+                    <label class="form-check-label" for="S1">
+                    S + 1
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" formControlName="Caregotie" value="S2" type="radio" name="flexRadioDefault2" id="S2">
+                    <label class="form-check-label" for="S2">
+                    S + 2
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" formControlName="Caregotie" value="S3" name="flexRadioDefault2" id="S3">
+                    <label class="form-check-label" for="S3">
+                    S + 3
+                    </label>
+                </div>
+            </div>
+          </div>
+          <div class="alert alert-danger" *ngIf="apartForm.get('Caregotie')?.touched && apartForm.get('Caregotie')?.hasError('required')" role="alert">
+            Caregotie est obligatoire
+          </div>
+          <div class="mb-3">
+            <label for="Description" class="form-label">Description</label>
+            <textarea class="form-control" formControlName="Description" id="Description" rows="3"></textarea>
+          </div>
+          <div class="alert alert-danger" *ngIf="apartForm.get('Description')?.touched && apartForm.get('Description')?.hasError('required')" role="alert">
+            Description est obligatoire
+          </div>
+          <div class="alert alert-danger" *ngIf="apartForm.get('Description')?.touched && apartForm.get('Description')?.hasError('minlength')" role="alert">
+            Description doit être au moins sur 10 caractères
+          </div>
+          <div class="mb-3">
+            <label for="Residance" class="form-label">Residance :</label>
+            <input type="text" formControlName="Residance" class="form-control" id="Residance" placeholder="Residance">
+          </div>
+          <div class="alert alert-danger" *ngIf="apartForm.get('Residance')?.touched && apartForm.get('Residance')?.hasError('required')" role="alert">
+            Residance est obligatoire
+          </div>
+          <input type="submit" class="btn btn-primary" [disabled]="apartForm.invalid" value="Add">
+    </form>
+</div>
